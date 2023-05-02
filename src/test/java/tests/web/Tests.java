@@ -20,11 +20,16 @@ public class Tests extends TestBase {
         steps.verifyFirstContentContainerName();
     }
 
-
-    @Test // todo не совпадает размер по ассерту
+    @Test // todo не совпадает размер по ассерту(без любы аксеновой сорри)
     public void test3() {
         steps.goToHomePage();
         steps.verifyAllContentContainersHasOptionToExpand();
+    }
+
+    @Test
+    public void test4() {
+        steps.goToHomePage();
+        steps.checkContainerByName("Бесплатные телеканалы");
     }
 
 

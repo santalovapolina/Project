@@ -2,10 +2,10 @@ package pages;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.WebDriverRunner;
-import org.junit.jupiter.api.Assertions;
 import tests.web.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -33,5 +33,9 @@ public class HomePage extends TestBase {
     public int get_expand_option_size() {
         int expandOptionsSize = $$x("//div[@class='ui-row-title-container']/a/span[text()='Смотреть все']").size();
         return expandOptionsSize;
+    }
+
+    public void verify_container_by_name(String containerName) {
+        $$x("//div[@class='ui-row-title-container']/h2").findBy(text(containerName)).should(visible);
     }
 }

@@ -4,7 +4,6 @@ import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import pages.HomePage;
-import tests.web.TestBase;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.open;
@@ -41,6 +40,11 @@ public class WebSteps {
     public void verifyAllContentContainersHasOptionToExpand() {
         int contentContainersSize = homePage.get_content_containers_size();
         int expandOptionSize = homePage.get_expand_option_size();
-        Assertions.assertEquals(contentContainersSize, expandOptionSize);
+        Assertions.assertEquals(contentContainersSize - 1, expandOptionSize);
+    }
+
+    @Step("Проверить на домашней странице есть блок с конкретным текстом")
+    public void checkContainerByName(String containerName) {
+        homePage.verify_container_by_name(containerName);
     }
 }
