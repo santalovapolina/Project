@@ -1,4 +1,33 @@
 package tests.web;
 
-public class Tests {
+import com.codeborne.selenide.WebDriverRunner;
+import org.junit.jupiter.api.Test;
+import steps.WebSteps;
+
+public class Tests extends TestBase {
+
+    private WebSteps steps = new WebSteps(new WebDriverRunner());
+
+    @Test
+    public void test1() {
+        steps.goToHomePage();
+        steps.verifyHeaderMenuTabs();
+    }
+
+    @Test
+    public void test2() {
+        steps.goToHomePage();
+        steps.verifyFirstContentContainerName();
+    }
+
+
+    @Test // todo не совпадает размер по ассерту
+    public void test3() {
+        steps.goToHomePage();
+        steps.verifyAllContentContainersHasOptionToExpand();
+    }
+
+
+
+
 }
