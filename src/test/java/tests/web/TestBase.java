@@ -18,6 +18,9 @@ import java.util.Map;
 
 public class TestBase {
 
+    public static final String endHome = "/home",
+    endVideo = "/video";
+
     @BeforeAll
     static void beforeAll() {
         WebDriverProvider.config();

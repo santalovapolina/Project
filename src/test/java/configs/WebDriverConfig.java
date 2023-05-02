@@ -5,7 +5,7 @@ import org.aeonbits.owner.Config;
 public interface WebDriverConfig extends Config {
 
     @Key("baseUrl")
-    @DefaultValue("https://kion.ru/home")
+    @DefaultValue("https://kion.ru")
     String getBaseUrl();
 
     @Key("browser")

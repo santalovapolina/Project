@@ -4,7 +4,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Test;
 import steps.WebSteps;
 
-public class Tests extends TestBase {
+public class HomeTests extends TestBase {
 
     private WebSteps steps = new WebSteps(new WebDriverRunner());
 
@@ -31,7 +31,6 @@ public class Tests extends TestBase {
         steps.goToHomePage();
         steps.checkContainerByName("Бесплатные телеканалы");
     }
-
 
 
 
