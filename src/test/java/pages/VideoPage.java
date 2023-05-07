@@ -13,7 +13,8 @@ public class VideoPage {
         this.driver = driver;
     }
 
-    public void verify(String contentContainerNumber) {
-        $$x("(//div[@class='ui-row-content d-flex transition'])[" + contentContainerNumber + "]/a").shouldHave(CollectionCondition.size(10));
+    public void verify_items_size(String contentContainerNumber) {
+        $$x("(//div[@class='ui-row-content d-flex transition'])[" + contentContainerNumber + "]/a").
+                shouldHave(CollectionCondition.size(10));
     }
 }

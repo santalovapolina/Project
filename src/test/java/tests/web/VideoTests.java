@@ -11,7 +11,7 @@ public class VideoTests extends TestBase {
     @Test
     public void test1() {
         steps.goToVideoPage();
-        steps.verifyContainerContentSize("2"); // there are 33 to choose
+        steps.verifyContainerContentItemsSize("2"); // there are 33 to choose
     }
 
 

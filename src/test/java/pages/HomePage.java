@@ -25,15 +25,6 @@ public class HomePage extends TestBase {
         $x("(//div[@class='ui-row-title-container'])[1]/h2").shouldHave(text("Популярно сейчас"));
     }
 
-    public int get_content_containers_size() {
-        int contentContainersSize = $$x("//div[@class='ui-row-title-container']/h2").size();
-        return contentContainersSize;
-    }
-
-    public int get_expand_option_size() {
-        int expandOptionsSize = $$x("//div[@class='ui-row-title-container']/a/span[text()='Смотреть все']").size();
-        return expandOptionsSize;
-    }
 
     public void verify_container_by_name(String containerName) {
         $$x("//div[@class='ui-row-title-container']/h2").findBy(text(containerName)).should(visible);
