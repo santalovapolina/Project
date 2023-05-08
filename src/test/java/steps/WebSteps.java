@@ -39,7 +39,7 @@ public class WebSteps {
     }
 
     @Step("Verify home page container")
-    public void checkContainerByName(String containerName) {
+    public void verifyContentContainerByName(String containerName) {
         homePage.verify_container_by_name(containerName);
     }
 

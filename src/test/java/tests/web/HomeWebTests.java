@@ -4,27 +4,27 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Test;
 import steps.WebSteps;
 
-public class HomeTests extends TestBase {
+public class HomeWebTests extends TestBase {
 
     private WebSteps steps = new WebSteps(new WebDriverRunner());
 
     @Test
-    public void test1() {
+    public void checkHeaderMenuTabs() {
         steps.goToHomePage();
         steps.verifyHeaderMenuTabs();
     }
 
     @Test
-    public void test2() {
+    public void checkFirstContentContainerName() {
         steps.goToHomePage();
         steps.verifyFirstContentContainerName();
     }
 
 
     @Test
-    public void test3() {
+    public void checkContentContainerByName() {
         steps.goToHomePage();
-        steps.checkContainerByName("Бесплатные телеканалы");
+        steps.verifyContentContainerByName("Бесплатные телеканалы");
     }
 
 

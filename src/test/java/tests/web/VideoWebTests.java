@@ -4,14 +4,14 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Test;
 import steps.WebSteps;
 
-public class VideoTests extends TestBase {
+public class VideoWebTests extends TestBase {
 
     private WebSteps steps = new WebSteps(new WebDriverRunner());
 
     @Test
-    public void test1() {
+    public void checkContentContainerItemsSizeByIndex() {
         steps.goToVideoPage();
-        steps.verifyContainerContentItemsSize("2"); // there are 33 to choose
+        steps.verifyContainerContentItemsSize("2");
     }
 
 
