@@ -42,8 +42,7 @@ public class LocalMobileDriver implements WebDriverProvider {
                 .setDeviceName(emulatorConfig.deviceName())
                 .setPlatformVersion(emulatorConfig.platformVersion())
                 .setApp(getAppPath())
-                .setAppPackage(emulatorConfig.appPackage())
-                .setAppActivity(emulatorConfig.appActivity());
+                .setAppPackage(emulatorConfig.appPackage());
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }

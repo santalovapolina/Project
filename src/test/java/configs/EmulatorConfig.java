@@ -2,8 +2,7 @@ package configs;
 
 import org.aeonbits.owner.Config;
 
-@EmulatorConfig.LoadPolicy(EmulatorConfig.LoadType.MERGE)
-@Config.Sources({"classpath:${envMobile}.properties"})
+@Config.Sources({"classpath:${env}.properties"})
 
 public interface EmulatorConfig extends Config {
 
@@ -21,8 +20,5 @@ public interface EmulatorConfig extends Config {
 
     @Key("appPackage")
     String appPackage();
-
-    @Key("appActivity")
-    String appActivity();
 
 }

@@ -6,8 +6,8 @@ import tests.web.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$$x;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
+import static io.appium.java_client.AppiumBy.id;
 
 public class HomePage extends TestBase {
 
@@ -28,5 +28,13 @@ public class HomePage extends TestBase {
 
     public void verify_container_by_name(String containerName) {
         $$x("//div[@class='ui-row-title-container']/h2").findBy(text(containerName)).should(visible);
+    }
+
+    public void verify_filters_on_header() {
+        $(id("ru.mts.mtstv:id/menuActionFilter")).shouldBe(visible);
+    }
+
+    public void click_on_tv_tab() {
+        $(id("ru.mts.mtstv:id/tabNavTvAction")).click();
     }
 }
