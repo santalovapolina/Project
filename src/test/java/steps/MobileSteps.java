@@ -36,12 +36,12 @@ public class MobileSteps {
         homePage.verify_filters_on_header();
     }
 
-    @Step("Go to Tv page from bottom navigation menu on home page")
+    @Step("Switch to TV page from bottom navigation menu on home page")
     public void goToTvFromBottomNavTab() {
         homePage.click_on_tv_tab();
     }
 
-    @Step("Verify header menu tabs on tv page")
+    @Step("Verify header menu tabs on TV page")
     public void verifyHeaderTabs() {
         tvPage.verify_tabs_on_header_menu();
     }
