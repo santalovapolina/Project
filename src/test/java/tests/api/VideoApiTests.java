@@ -18,21 +18,21 @@ public class VideoApiTests {
 
     @Test
     void checkShelfTitleText() {
-        JsonPath jsonPath = steps.getData();
+        JsonPath jsonPath = steps.getMoviesData();
         String title = steps.getShelfTitle(jsonPath, shelfNumber);
         steps.verifyShelfTitle(title);
     }
 
     @Test
     void checkMovieOnShelf() {
-        JsonPath jsonPath = steps.getData();
+        JsonPath jsonPath = steps.getMoviesData();
         List<String> titles = steps.getShelfItemsTitles(jsonPath, shelfNumber);
         steps.verifyItemTitle(titles);
     }
 
     @Test
     void checkItemsHaveMovieContentId() {
-        JsonPath jsonPath = steps.getData();
+        JsonPath jsonPath = steps.getMoviesData();
         List<String> movieContentId = steps.getAllShelvesItemsMovieContentIds(jsonPath);
         steps.verifyShelvesItemsMovieContentIds(movieContentId);
     }

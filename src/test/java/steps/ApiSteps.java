@@ -16,7 +16,7 @@ public class ApiSteps {
 
 
     @Step("Getting data")
-    public JsonPath getData() {
+    public JsonPath getMoviesData() {
         Response response = given()
                 .queryParam("offset","0")
                 .spec(baseRequestSpec)
