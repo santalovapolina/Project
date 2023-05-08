@@ -23,37 +23,33 @@ public class WebSteps {
     VideoPage videoPage = new VideoPage(new WebDriverRunner());
 
 
-    // todo здесь также другие пэйджи
-
-    @Step("Перейти на домашнюю страницу")
+    @Step("Go to home page")
     public void goToHomePage() {
         open(baseUrl + endHome);
     }
 
-    @Step("Проверить верхнее меню на количество разделов")
+    @Step("Verify header menu tabs amount")
     public void verifyHeaderMenuTabs() {
         homePage.verify_header_tabs_amount();
     }
 
-    @Step("Проверить первый блок называется 'Популярно сейчас'")
+    @Step("Verify container name 'Популярно сейчас'")
     public void verifyFirstContentContainerName() {
         homePage.verify_container_name();
     }
 
-
-
-    @Step("Проверить на домашней странице есть блок с конкретным текстом")
+    @Step("Verify home page container")
     public void checkContainerByName(String containerName) {
         homePage.verify_container_by_name(containerName);
     }
 
-    @Step("Перейти на страницу 'Фильмы'")
+    @Step("Go to video page")
     public void goToVideoPage() {
         open(baseUrl + endVideo);
     }
 
-    @Step("Проверить что на странице с фильмами в слайдере 10 фильмов")
+    @Step("Verify container content items size")
     public void verifyContainerContentItemsSize(String contentContainerNumber) {
-        videoPage.verify_items_size(contentContainerNumber); // todo change the name of method
+        videoPage.verify_items_size(contentContainerNumber);
     }
 }
