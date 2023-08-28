@@ -2,7 +2,7 @@ package configs;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources({"classpath:${env}.properties"})
+@Config.Sources({"classpath:${mobile}.properties"})
 
 public interface EmulatorConfig extends Config {
 

@@ -13,11 +13,9 @@ public class VideoWebTests extends TestBase {
     private WebSteps steps = new WebSteps(new WebDriverRunner());
 
     @Test
-    public void checkContentContainerItemsSizeByIndex() {
+    public void checkRandomContentContainerItemsSizeByIndex() {
         steps.goToVideoPage();
-        steps.verifyContainerContentItemsSize("2");
+        steps.verifyContainerContentItemsSize();
     }
-
-
 
 }

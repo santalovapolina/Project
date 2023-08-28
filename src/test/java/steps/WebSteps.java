@@ -49,7 +49,7 @@ public class WebSteps {
     }
 
     @Step("Verify container content items size")
-    public void verifyContainerContentItemsSize(String contentContainerNumber) {
-        videoPage.verify_items_size(contentContainerNumber);
+    public void verifyContainerContentItemsSize() {
+        videoPage.verify_items_size();
     }
 }

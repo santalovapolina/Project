@@ -14,7 +14,6 @@ import static specs.Specs.baseResponseSpecCode200;
 
 public class ApiSteps {
 
-
     @Step("Getting data")
     public JsonPath getMoviesData() {
         Response response = given()

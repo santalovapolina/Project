@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import steps.MobileSteps;
 
+import static com.codeborne.selenide.Selenide.sleep;
+
 @Tag("mobile")
 @Owner("Santalova Polina")
 public class MobileTests extends TestBase{

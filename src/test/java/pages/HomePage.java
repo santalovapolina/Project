@@ -1,12 +1,15 @@
 package pages;
 
 import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.WebDriverRunner;
+import org.openqa.selenium.By;
 import tests.web.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$x;
 import static io.appium.java_client.AppiumBy.id;
 
 public class HomePage extends TestBase {
@@ -17,24 +20,32 @@ public class HomePage extends TestBase {
         this.driver = driver;
     }
 
+    private final String firstContainerName = "Популярно сейчас";
+
+    private final By menuActionFilter = id("ru.mts.mtstv:id/menuActionFilter"),
+            tabNavTvAction = id("ru.mts.mtstv:id/tabNavTvAction");
+
+    private final ElementsCollection headerTabs = $$x("//nav[@class='col d-flex']/a"),
+            containersTitles = $$x("//div[@class='ui-row-title-container']/h2");
+
+
     public void verify_header_tabs_amount() {
-        $$x("//nav[@class='col d-flex']/a").shouldHave(CollectionCondition.size(4));
+        headerTabs.shouldHave(CollectionCondition.size(4));
     }
 
     public void verify_container_name() {
-        $x("(//div[@class='ui-row-title-container'])[1]/h2").shouldHave(text("Популярно сейчас"));
+        containersTitles.get(0).shouldHave(text(firstContainerName));
     }
 
-
     public void verify_container_by_name(String containerName) {
-        $$x("//div[@class='ui-row-title-container']/h2").findBy(text(containerName)).should(visible);
+        containersTitles.findBy(text(containerName)).should(visible);
     }
 
     public void verify_filters_on_header() {
-        $(id("ru.mts.mtstv:id/menuActionFilter")).shouldBe(visible);
+        $(menuActionFilter).shouldBe(visible);
     }
 
     public void click_on_tv_tab() {
-        $(id("ru.mts.mtstv:id/tabNavTvAction")).click();
+        $(tabNavTvAction).click();
     }
 }

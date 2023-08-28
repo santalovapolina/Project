@@ -1,8 +1,8 @@
 package tests.mobile;
 
 import com.codeborne.selenide.Configuration;
-import static com.codeborne.selenide.Selenide.*;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import drivers.BrowserstackMobileDriver;
 import drivers.LocalMobileDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -10,16 +10,22 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
+import static com.codeborne.selenide.Selenide.*;
+
 
 public class TestBase {
 
+    public static String deviceHost = System.getProperty("mobile");
+
     @BeforeAll
     static void beforeAll() {
-        Configuration.browser = LocalMobileDriver.class.getName();
         Configuration.timeout = 15000;
         Configuration.pageLoadTimeout = 15000;
-        Configuration.browserSize = null;
-
+        if (deviceHost.equals("browserstack")) {
+            Configuration.browser = BrowserstackMobileDriver.class.getName();
+        } else {
+            Configuration.browser = LocalMobileDriver.class.getName();
+        }
     }
 
     @BeforeEach
@@ -31,6 +37,9 @@ public class TestBase {
     @AfterEach
     void afterEach() {
         Attach.pageSource();
+        if ("browserstack".equals(deviceHost)) {
+            Attach.addVideo(sessionId().toString());
+        }
         closeWebDriver();
     }
 
